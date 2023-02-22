@@ -1,16 +1,12 @@
 import Heading from "./components/Heading";
 import Card from "./components/Card";
+import ScoreMeter from "./components/ScoreMeter";
 import SummaryItems from "./components/SummaryItems";
 import Stack from "./components/layout/Stack";
 import Button from "./components/Button";
 import data from "./data.json";
 
 const scores = data.map((item) => item.score);
-const scoreAverage = Math.floor(
-  scores.reduce((acc, curr) => {
-    return acc + curr;
-  }) / scores.length
-);
 
 function App() {
   return (
@@ -18,19 +14,9 @@ function App() {
       <h1 className="sr-only">Performance Results Summary</h1>
       <div className="flex flex-col items-center rounded-b-lg bg-gradient-to-b from-violet-light to-blue-light pt-6 pb-10 shadow md:rounded-lg">
         <Heading className="mb-6 text-lavender">Your Result</Heading>
-        {/* score meter */}
-        <div className="mb-4 grid aspect-square w-[140px] place-content-center rounded-full bg-gradient-to-b from-violet to-transparent">
-          <p className="flex flex-col items-center">
-            <span className="mb-3 text-2xl font-bold leading-none text-white">
-              {scoreAverage}
-            </span>
-            <span className="leading-none text-lavender opacity-50">
-              of 100
-            </span>
-          </p>
-        </div>
-        <p className="mb-2 text-lg font-bold text-white">Great</p>
-        <p className="max-w-[30ch] text-center text-sm leading-5 text-lavender">
+        <ScoreMeter scores={scores} />
+        <p className="mb-2 text-lg font-bold text-white md:text-xl">Great</p>
+        <p className="max-w-[16.25rem] text-center text-sm leading-5 text-lavender md:text-base">
           Your performance exceed 65% of the people conducting the test here!
         </p>
       </div>
