@@ -1,4 +1,5 @@
 import Heading from "./components/Heading";
+import Card from "./components/Card";
 import SummaryItems from "./components/SummaryItems";
 import Stack from "./components/layout/Stack";
 import Button from "./components/Button";
@@ -13,9 +14,9 @@ const scoreAverage = Math.floor(
 
 function App() {
   return (
-    <article>
+    <Card>
       <h1 className="sr-only">Performance Results Summary</h1>
-      <div className="flex flex-col items-center rounded-b-lg bg-gradient-to-b from-violet-light to-blue-light pt-6 pb-10 shadow">
+      <div className="flex flex-col items-center rounded-b-lg bg-gradient-to-b from-violet-light to-blue-light pt-6 pb-10 shadow md:rounded-lg">
         <Heading className="mb-6 text-lavender">Your Result</Heading>
         {/* score meter */}
         <div className="mb-4 grid aspect-square w-[140px] place-content-center rounded-full bg-gradient-to-b from-violet to-transparent">
@@ -42,7 +43,7 @@ function App() {
           Continue
         </Button>
       </div>
-    </article>
+    </Card>
   );
 }
 
